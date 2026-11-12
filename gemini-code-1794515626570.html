@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jyoti Singh | BIM Architect</title>
+    
+    <!-- Added Caveat font for the informal About Me text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body { 
+            font-family: 'Gotham', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            font-size: 1.1rem;
+            line-height: 1.6; 
+            color: #334155; 
+            max-width: 950px; 
+            margin: 0 auto; 
+            padding: 2rem; 
+            background-color: #f8fafc;
+            position: relative;
+        }
+
+        /* 
+         * BUILDING WIREFRAME WATERMARK 
+         * Ensure 'image_1a3f84.png' is in the same folder as this HTML file.
+         */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('image_1a3f84.png');
+            background-size: cover;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            opacity: 0.06; /* Highly transparent so text is still readable */
+            z-index: -1; 
+        }
+        
+        header { 
+            border-bottom: 2px solid #cbd5e1; 
+            padding-bottom: 1.5rem; 
+            margin-bottom: 3rem; 
+            text-align: center; 
+        }
+        
+        /* Matching the Title and Name Image Styling */
+        .name-title { 
+            display: flex; 
+            align-items: baseline; 
+            justify-content: center; 
+            gap: 12px; 
+            margin-bottom: 0.5rem; 
+        }
+        .name-title h1 { 
+            margin: 0; 
+            color: #0f4c81; 
+            font-size: 3.2rem; 
+            font-family: 'Georgia', serif; 
+            font-weight: bold;
+        }
+        .name-title .divider { color: #94a3b8; font-size: 2rem; }
+        .name-title h2 { 
+            color: #2b6ca3; 
+            font-size: 1.4rem; 
+            margin: 0; 
+            font-weight: 500; 
+            letter-spacing: 1px;
+        }
+        
+        .contact-info { 
+            font-size: 0.95rem; 
+            color: #333; 
+            margin-bottom: 2rem; 
+        }
+        .contact-info a { color: #333; text-decoration: underline; }
+        
+        /* Informal 'About Me' Box */
+        .about-text {
+            font-family: 'Caveat', cursive; /* Less formal, handwritten style */
+            font-size: 1.5rem; /* Larger font size because cursive reads smaller */
+            color: #475569; 
+            max-width: 650px; 
+            margin: 0 auto; 
+            line-height: 1.4; 
+            background: rgba(255, 255, 255, 0.7); 
+            padding: 1.5rem; 
+            border-radius: 8px; 
+            border: 1px dashed #94a3b8;
+        }
+
+        /* Container Styling */
+        .video-container { 
+            background: rgba(255, 255, 255, 0.95); 
+            padding: 2rem; 
+            border-radius: 8px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+            margin-bottom: 3rem; 
+            border: 1px solid rgba(2, 132, 199, 0.15);
+        }
+        
+        .video-container h3 { color: #0f4c81; margin-top: 0; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem; }
+        
+        .video-placeholder { margin-bottom: 1.5rem; background: #e2e8f0; border-radius: 4px; overflow: hidden; position: relative; padding-bottom: 56.25%; height: 0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); }
+        .video-placeholder iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        
+        /* Left-Lined Bullet Points */
+        .description-box { 
+            background: rgba(224, 242, 254, 0.7); 
+            padding: 1.5rem; 
+            border-radius: 6px; 
+            margin-top: 1rem; 
+            box-shadow: inset 0 2px 4px rgba(2,132,199,0.02);
+        }
+        .description-item {
+            padding-left: 1.2rem;
+            border-left: 3px solid #0284c7;
+            margin-bottom: 1rem;
+        }
+        .description-item:last-child { margin-bottom: 0; }
+        
+        .description-item strong { 
+            color: #0284c7; 
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 1.15rem; 
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        
+        /* Footer/Portfolio Section */
+        .footer-links { 
+            background: rgba(255, 255, 255, 0.9); 
+            padding: 2.5rem; 
+            border-radius: 8px; 
+            text-align: center; 
+            margin-top: 4rem; 
+            border: 2px dashed #94a3b8; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        .footer-links h3 { color: #0f172a; margin-top: 0; margin-bottom: 0.5rem; font-size: 1.8rem; font-weight: 700;}
+        
+        .portfolio-embeds { display: flex; gap: 2rem; margin-top: 2rem; justify-content: center; }
+        .embed-box { flex: 1; width: 100%; }
+        .embed-box h4 { color: #0369a1; margin-bottom: 1rem; font-size: 1.3rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem; font-weight: 600;}
+        
+        .flip-placeholder { width: 100%; height: 500px; background: #f8fafc; border-radius: 4px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #cbd5e1; }
+        .flip-placeholder iframe { width: 100%; height: 100%; border: none; }
+
+        @media (max-width: 768px) {
+            .portfolio-embeds { flex-direction: column; }
+            .name-title { flex-direction: column; align-items: center; gap: 0; }
+            .name-title .divider { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="name-title">
+            <h1>Jyoti Singh</h1>
+            <span class="divider">|</span>
+            <h2>BIM ARCHITECT</h2>
+        </div>
+        
+        <div class="contact-info">
+            +971 58 526 0655 &nbsp;|&nbsp; singhjyoti266@gmail.com &nbsp;|&nbsp; Dubai, UAE &nbsp;|&nbsp; <a href="http://www.linkedin.com/in/jyoti-singh-ju/" target="_blank">www.linkedin.com/in/jyoti-singh-ju/</a>
+        </div>
+
+        <p class="about-text">
+            I am a BIM Architect who loves exploring new ways to work. I have developed custom pyRevit scripts to automate manual, boring tasks that often lead to human errors. Here are a few samples.
+        </p>
+    </header>
+
+    <div class="video-container">
+        <h3>1. Automated Room Finishes</h3>
+        <div class="video-placeholder">
+            <iframe src="https://drive.google.com/file/d/1xF8aaZ3n3jz5TAbX85KXjvfMfnHhAudI/preview" allow="autoplay"></iframe>
+        </div>
+        <div class="description-box">
+            <div class="description-item">
+                <strong>The Manual Way:</strong> Tediously tracing the perimeter of every single room to individually model the skirting, floor layers, and wall plaster.
+            </div>
+            <div class="description-item">
+                <strong>The Solution:</strong> Read the room boundaries and instantly generate all architectural finishes in one click.
+            </div>
+        </div>
+    </div>
+
+    <div class="video-container">
+        <h3>2. Automated Room Numbering</h3>
+        <div class="video-placeholder">
+            <iframe src="https://drive.google.com/file/d/13-2y-d5Vr3W9AlwtERDj0MMch06UrY5b/preview" allow="autoplay"></iframe>
+        </div>
+        <div class="description-box">
+            <div class="description-item">
+                <strong>The Manual Way:</strong> Clicking each room one by one, typing the number, realizing you missed one, and having to fix the entire sequence by hand.
+            </div>
+            <div class="description-item">
+                <strong>The Solution:</strong> Select the space, define the format, and correctly number all rooms across the floor in one click.
+            </div>
+        </div>
+    </div>
+
+    <div class="video-container">
+        <h3>3. Auto-Dimensioning Tool</h3>
+        <div class="video-placeholder">
+            <iframe src="https://drive.google.com/file/d/13-2y-d5Vr3W9AlwtERDj0MMch06UrY5b/preview" allow="autoplay"></iframe>
+        </div>
+        <div class="description-box">
+            <div class="description-item">
+                <strong>The Manual Way:</strong> Clicking every single wall face, struggling to match the spacing between all the dimension lines, zooming in and out, and obsessively readjusting.
+            </div>
+            <div class="description-item">
+                <strong>The Solution:</strong> Decide your spacing once and generate perfectly aligned, standardized dimensions in one click.
+            </div>
+        </div>
+    </div>
+
+    <div class="video-container">
+        <h3>4. Grid Alignment Utility</h3>
+        <div class="video-placeholder">
+            <iframe src="https://drive.google.com/file/d/1o7TUW0KeYScETP38raDCfK1joMaaid7M/preview" allow="autoplay"></iframe>
+        </div>
+        <div class="description-box">
+            <div class="description-item">
+                <strong>The Manual Way:</strong> Manually moving the grid on 50+ sheets, trying to decide which looks better, drawing temporary reference lines to check, and fighting to keep it consistent everywhere.
+            </div>
+            <div class="description-item">
+                <strong>The Solution:</strong> Snap all grid heads and tails to a perfect, unified alignment across the entire project in one click.
+            </div>
+        </div>
+    </div>
+
+    <div class="video-container">
+        <h3>5. Bulk Wall Type Management</h3>
+        <div class="video-placeholder">
+            <iframe src="https://drive.google.com/file/d/14VC6t1zq4PGXOm1yFVM3rBhtBhKdxLvy/preview" allow="autoplay"></iframe>
+        </div>
+        <div class="description-box">
+            <div class="description-item">
+                <strong>The Manual Way:</strong> Tired of making 100+ wall types, duplicating them, renaming them, and going back and forth to update descriptions, keynotes, etc.
+            </div>
+            <div class="description-item">
+                <strong>The Solution:</strong> Update everything in Excel, import all changes into Revit at once, and export it back to Excel to keep handy during client meetings.
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Links Section -->
+    <div class="footer-links">
+        <h3>Explore More Work</h3>
+        <p>Review my full architectural portfolio:</p>
+        <div class="portfolio-embeds">
+            <div class="embed-box">
+                <h4>Full Portfolio</h4>
+                <div class="flip-placeholder">
+                    <iframe src="https://drive.google.com/file/d/1uQ7V5llTH8a6EXyKoQ139ZlhExIB-LLV/preview"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
